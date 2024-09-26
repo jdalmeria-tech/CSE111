@@ -14,7 +14,7 @@ def main():
     "#5", "#6Z", "#8Z short", "#10", "#211", "#300", "#303"
   ]
 
-  can_radiuses = [
+  can_radii = [
     6.83, 7.78, 8.73, 10.32, 10.79, 13.02, 5.40,
     6.83, 15.72, 6.83, 7.62, 8.10
   ]
@@ -38,7 +38,7 @@ def main():
   # name, radius, height, and cost.
   for i in range(len(can_names)):
     name = can_names[i]
-    radius = can_radiuses[i]
+    radius = can_radii[i]
     height = can_heights[i]
     cost = can_costs[i]
 
