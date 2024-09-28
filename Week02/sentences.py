@@ -116,9 +116,9 @@ def make_sentence(quantity, tense):
   verb = get_verb(quantity, tense)
   phrase1 = get_prepositional_phrase(quantity)
   phrase2 = get_prepositional_phrase(quantity) # exceeding requirements no.1
-  adverb = get_adverb()
+  adverb = get_adverb() # exceeding requirments no.2
 
-  sentence = f"{phrase1}, {determiner} {noun} {verb} {adverb} {phrase2}."
+  sentence = f"{determiner} {noun}, {phrase1}, {adverb} {verb} {determiner} {noun} {phrase2}." # added a comma for readability
 
   return sentence.capitalize()
 
