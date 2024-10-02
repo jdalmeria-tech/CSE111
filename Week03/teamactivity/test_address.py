@@ -12,7 +12,7 @@ def test_extract_city():
   assert extract_city("456 Elm St, Austin, TX 73301") == "Austin"
 
 def test_extract_state():
-  """Verify that the extract_city function works correctly.
+  """Verify that the extract_state function works correctly.
     Parameters: none
     Return: nothing
     """
