@@ -12,6 +12,7 @@ def test_make_full_name():
   assert make_full_name("Sally", "Brown") == "Brown; Sally"
   assert make_full_name("Joseph-Dann", "Almeria") == "Almeria; Joseph-Dann"
   assert make_full_name("Alexandria", "Supercalifragilisticexpialidocious") == "Supercalifragilisticexpialidocious; Alexandria"
+  assert make_full_name("", "") == "; "
 
 def test_extract_family_name():
   """Verify that the extract_family_name function works correctly.
@@ -23,6 +24,7 @@ def test_extract_family_name():
   assert extract_family_name("Brown; Sally") == "Brown"
   assert extract_family_name("Almeria; Joseph-Dann") == "Almeria"
   assert extract_family_name("Supercalifragilisticexpialidocious; Alexandria") == "Supercalifragilisticexpialidocious"
+  assert extract_family_name("; ") == ""
 
 def test_extract_given_name():
   """Verify that the extract_given_name function works correctly.
@@ -34,6 +36,7 @@ def test_extract_given_name():
   assert extract_given_name("Brown; Sally") == "Sally"
   assert extract_given_name("Almeria; Joseph-Dann") == "Joseph-Dann"
   assert extract_given_name("Supercalifragilisticexpialidocious; Alexandria") == "Alexandria"
+  assert extract_given_name("; ") == ""
 
 # Call the main function that is part of pytest so that the
 # computer will execute the test functions in this file.
