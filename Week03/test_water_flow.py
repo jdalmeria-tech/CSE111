@@ -2,7 +2,7 @@ from pytest import approx
 import pytest
 from water_flow import water_column_height, pressure_gain_from_water_height, \
   pressure_loss_from_pipe, pressure_loss_from_fittings, reynolds_number, \
-  pressure_loss_from_pipe_reduction
+  pressure_loss_from_pipe_reduction, conversion_kPa_to_psi
 
 
 def test_water_column_height():
@@ -49,6 +49,15 @@ def test_pressure_loss_from_pipe_reduction():
   assert pressure_loss_from_pipe_reduction(0.28687, 0.00, 1, 0.048692) == approx(0.000, abs=0.001)
   assert pressure_loss_from_pipe_reduction(0.28687, 1.65, 471729, 0.048692) == approx(-163.744, abs=0.001)
   assert pressure_loss_from_pipe_reduction(0.28687, 1.75, 500318, 0.048692) == approx(-184.182, abs=0.001)
+
+def test_conversion_kPa_to_psi(): #stretch challenge 3
+
+  assert conversion_kPa_to_psi(0.0) == approx(0.0, abs=0.1)
+  assert conversion_kPa_to_psi(55.17) == approx(8.0, abs=0.1)
+  assert conversion_kPa_to_psi(88.98) == approx(12.9, abs=0.1)
+  assert conversion_kPa_to_psi(158.7) == approx(23.0, abs=0.1)
+  assert conversion_kPa_to_psi(158.7) == approx(23.0, abs=0.1)
+  assert conversion_kPa_to_psi(779) == approx(113.0, abs=0.1)
 
 # Call the main function that is part of pytest so that the
 # computer will execute the test functions in this file.
