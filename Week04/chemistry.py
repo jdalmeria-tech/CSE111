@@ -103,35 +103,57 @@ def make_periodic_table():
     "Zn": ["Zinc", 65.38],
     "Zr": ["Zirconium", 91.224]
   }
+
   # return the list
   return periodic_table_dict
 
 def main():
+    known_molecules_dict = {
+        "Al2O3": "aluminum oxide",
+        "CH3OH": "methanol",
+        "C2H6O": "ethanol",
+        "C2H5OH": "ethanol",
+        "C3H8O": "isopropyl alcohol",
+        "C3H8": "propane",
+        "C4H10": "butane",
+        "C6H6": "benzene",
+        "C6H14": "hexane",
+        "C8H18": "octane",
+        "CH3(CH2)6CH3": "octane",
+        "C13H18O2": "ibuprofen",
+        "C13H16N2O2": "melatonin",
+        "Fe2O3": "iron oxide",
+        "FeS2": "iron pyrite",
+        "H2O": "water"
+    }
+
   # Get a chemical formula for a molecule from the user.
-  chemical_formula = input("Enter the chemical formula for a molecule: ")
+    chemical_formula = input("Enter the chemical formula for a molecule: ").strip()
   # Get the mass of a chemical sample in grams from the user.
-  mass = float(input("Enter the mass of a chemical sample in grams: "))
+    mass = float(input("Enter the mass of a chemical sample in grams: "))
 
   # Call the make_periodic_table function and store the returned list in a variable.
-  periodic_table = make_periodic_table()
+    periodic_table = make_periodic_table()
   # Call the parse_formula function to convert the
   # chemical formula given by the user to a compound
   # list that stores element symbols and the quantity
   # of atoms of each element in the molecule.
-  symbol_quantity_list = parse_formula(chemical_formula, periodic_table)  
-
+    symbol_quantity_list = parse_formula(chemical_formula, periodic_table)  
   # Call the compute_molar_mass function to compute the
   # molar mass of the molecule from the compound list.
-  molar_mass = compute_molar_mass(symbol_quantity_list, periodic_table)
-  
+    molar_mass = compute_molar_mass(symbol_quantity_list, periodic_table)
+ 
   # Compute the number of moles in the sample.
-  moles = mass / molar_mass
-
-  rounded_molar_mass = round(molar_mass, 5)
-  rounded_moles = round(moles, 5)
+    moles = mass / molar_mass
+    rounded_molar_mass = round(molar_mass, 5)
+    rounded_moles = round(moles, 5)
   # Print the molar mass and the number of moles.
-  print(f"{rounded_molar_mass} grams/mole")
-  print(f"{rounded_moles} moles")
+    print(f"{rounded_molar_mass} grams/mole")
+    print(f"{rounded_moles} moles")
+
+    # Get the compound name from the known molecules dictionary
+    compound_name = get_formula_name(chemical_formula, known_molecules_dict)
+    print(f"Compound name: {compound_name}")
 
 # Indexes for inner lists in the periodic table
 NAME_INDEX = 0
@@ -172,6 +194,20 @@ def compute_molar_mass(symbol_quantity_list, periodic_table_dict):
         total_molar_mass += atomic_mass*quantity
     # Return the total molar mass.
     return total_molar_mass
+
+def get_formula_name(formula, known_molecules_dict):
+    """Try to find formula in the known_molecules_dict.
+    If formula is in the known_molecules_dict, return
+    the name of the chemical formula; otherwise return
+    "unknown compound".
+    Parameters
+        formula is a string that contains a chemical formula
+        known_molecules_dict is a dictionary that contains
+            known chemical formulas and their names
+    Return: the name of a chemical formula
+    """
+    formula = formula.strip()
+    return known_molecules_dict.get(formula, "Unknown compound")
 
 # Call main to start this program.
 if __name__ == "__main__":
