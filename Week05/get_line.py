@@ -42,11 +42,11 @@ def main():
         print("Run the program again and enter the name" \
                 " of a file that you are allowed to read.")
 
-    except ValueError as val_err:
+    except ValueError as value_err:
         # This code will be executed if the user enters
         # an invalid integer for the line number.
         print()
-        print(type(val_err).__name__, val_err, sep=": ")
+        print(type(value_err).__name__, value_err, sep=": ")
         print("You entered an invalid integer for the line number.")
         print("Run the program again and enter an integer for" \
                 " the line number.")
