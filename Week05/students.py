@@ -1,5 +1,7 @@
+# done with the core requirements
+# also included the stretch challenge
 import csv
-def main(filename):
+def main():
   """Read the contents of a CSV file into a
   dictionary and return the dictionary.
   Parameters
@@ -11,18 +13,32 @@ def main(filename):
   ID_NUM_INDEX = 0
   NAME_INDEX = 1
   # Call the read_dictionary function and store in a variable.
-  students_dict = read_dictionary(filename, ID_NUM_INDEX)
+  students_dict = read_dictionary("students.csv", ID_NUM_INDEX)
   
   # Get a student ID from the user.
   id_num = input("Please enter an I-Number (xxxxxxxxx): ")
-  # Check if the student ID is in the dictionary.
-  if id_num in students_dict:
-    # Find the student ID in the dictionary and
-    # Retrieve student's full name
-    full_name = students_dict[id_num][NAME_INDEX]
-    print(full_name)
+
+  # The I-Numbers are stored in the CSV file as digits only (without
+  # any dashes), so we remove all dashes from the user's input.
+  id_num = id_num.replace("-", "")
+
+  # Determine if the user input is in the correct format.
+  if not id_num.isdigit():
+    print("I-Number contains an invalid character")
   else:
-    print(f"No such student")
+    if len(id_num) < 9:
+      print("Too few digits invalid format")
+    elif len(id_num) > 9:
+      print("Too many digits, invalid format")
+    else:
+      # Check if the student ID is in the dictionary.
+      if id_num in students_dict:
+        # Find the student ID in the dictionary and
+        # Retrieve student's full name
+        full_name = students_dict[id_num][NAME_INDEX]
+        print(full_name)
+      else:
+        print(f"No such student")
 
 
 def read_dictionary(filename, key_column_index):
@@ -65,4 +81,4 @@ def read_dictionary(filename, key_column_index):
 
 # Call main to start this program.
 if __name__ == "__main__":
-    main("students.csv")
+    main()
