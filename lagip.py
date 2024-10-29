@@ -99,7 +99,7 @@ def download_audio(url, status_label):
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             video_info = ydl.extract_info(url, download=True)
             video_file = ydl.prepare_filename(video_info)
-            extract_audio(video_file)
+            extract_audio(video_file)  # Ensure this returns the audio path
 
         status_label.config(text="Audio download successful!", fg="green")
         messagebox.showinfo("Success", "Audio downloaded and converted to MP3 successfully!")
@@ -107,6 +107,7 @@ def download_audio(url, status_label):
         status_label.config(text="Download failed", fg="red")
         messagebox.showerror("Error", f"Failed to download audio: {e}")
         print(f"Error: {e}")
+
 
 def clear_url(entry):
     """
@@ -127,13 +128,15 @@ def extract_audio(video_path, audio_format='mp3'):
     """
     try:
         audio_path = f"{os.path.splitext(video_path)[0]}.{audio_format}"
-        # Only load audio, not the whole video
         with mp.AudioFileClip(video_path) as audio:
             audio.write_audiofile(audio_path)
         os.remove(video_path)  # Remove the video file after extracting audio
-        messagebox.showinfo("Success", f"Audio extracted successfully to {audio_path}!")
+        # Only show messagebox if not testing
+        if not __name__ == "__main__":
+            messagebox.showinfo("Success", f"Audio extracted successfully to {audio_path}!")
     except Exception as e:
         messagebox.showerror("Error", f"Failed to extract audio: {e}")
+
 
 if __name__ == "__main__":
     main()
