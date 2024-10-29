@@ -1,0 +1,49 @@
+CSE 111 Proposal for a Student Chosen Program
+
+    (This is a proposal. All proposals are written with our best
+    knowledge at the beginning of a project. As we progress from the
+    beginning to the end of a project, we gain more knowledge, and we
+    change some of our proposed ideas. This is part of completing any
+    project and is fine.  However, we still must write a proposal so
+    that our teachers or supervisors know what we intend to do. Please
+    answer each of the following questions to the best of your
+    knowledge.)
+
+1. What is the title of your program?
+    Lagip
+2. What real-world problem will your program address or help to solve?
+    (YouTube downloader and can convert to mp3)
+    For students to download free resources on YT and save them for later
+    access if they have no internet
+3. What will you learn from developing this program?
+    I will learn how to test this kind of program since I still have no grasp
+    of how to do it but I am positive I can with guidance from experts (instructor, tutor, etc.)
+4. What Python modules will your program use?
+    tkinter, yt_dlp, moviepy
+    (Some examples are: csv, datetime, functools, matplotlib, math,
+    pandas, pytest, random, requests, and tkinter.)
+
+5. List the names of functions you will need?
+    main()
+    def setup_gui(root)
+    download_video(url: str, status_label: str)
+    download_audio(url: str, status_label: str)
+    def clear_url(entry)
+    extract_audio(video_path: str, audio_format: str)
+
+    (Remember that the most reusable functions don't get user input and
+    don't print results but instead have parameters and return a result.
+    Functions that get user input and print results are important and do
+    useful work but are not easily reusable.)
+
+    (Remember also that it's hard to test functions that get user input
+    and print results. It's easy to test functions that don't get user
+    input and don't print results but instead have parameters and return
+    a result. Therefore, you should write most of your program functions
+    to have parameters and return a result.)
+
+6. List the names of the test functions you will write.
+    url_entry()
+    test_download_video()
+    test_clear_url()
+    test_extract_audio()
