@@ -19,7 +19,7 @@ CSE 111 Proposal for a Student Chosen Program
     I will learn how to test this kind of program since I still have no grasp
     of how to do it but I am positive I can with guidance from experts (instructor, tutor, etc.)
 4. What Python modules will your program use?
-    pytube or moviepy
+    pytube or moviepy and tkinter
     (Some examples are: csv, datetime, functools, matplotlib, math,
     pandas, pytest, random, requests, and tkinter.)
 
