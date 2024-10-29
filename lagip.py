@@ -48,7 +48,7 @@ def setup_gui(root):
 
 def download_video(url, status_label):
     """
-    Downloads a YouTube video from the provided URL.
+    Downloads a YouTube video from the provided URL as an MP4 file.
     Parameters:
         url (str): The URL of the YouTube video to download.
         status_label (tk.Label): The label to update with status messages.
@@ -62,7 +62,7 @@ def download_video(url, status_label):
             raise ValueError("Invalid YouTube URL")
 
         ydl_opts = {
-            'format': 'best',
+            'format': 'mp4',
             'outtmpl': 'downloads/%(title)s.%(ext)s'
         }
 
@@ -130,13 +130,10 @@ def extract_audio(video_path, audio_format='mp3'):
         # Only load audio, not the whole video
         with mp.AudioFileClip(video_path) as audio:
             audio.write_audiofile(audio_path)
+        os.remove(video_path)  # Remove the video file after extracting audio
         messagebox.showinfo("Success", f"Audio extracted successfully to {audio_path}!")
     except Exception as e:
         messagebox.showerror("Error", f"Failed to extract audio: {e}")
 
 if __name__ == "__main__":
     main()
-
-
-
-
