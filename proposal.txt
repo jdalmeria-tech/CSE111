@@ -43,7 +43,5 @@ CSE 111 Proposal for a Student Chosen Program
     to have parameters and return a result.)
 
 6. List the names of the test functions you will write.
-    url_entry()
     test_download_video()
     test_clear_url()
-    test_extract_audio()
