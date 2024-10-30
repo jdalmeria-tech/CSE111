@@ -30,11 +30,11 @@ def setup_gui(root):
     bold_font = font.Font(weight="bold")
 
     # Download Video button
-    download_video_button = tk.Button(root, text="Download Video", command=lambda: download_video(url_entry.get(), status_label), bg="green", fg="white", font=bold_font)
+    download_video_button = tk.Button(root, text="Download Video (mp4)", command=lambda: download_video(url_entry.get(), status_label), bg="green", fg="white", font=bold_font)
     download_video_button.grid(row=1, column=1, padx=10, pady=10)
 
     # Download Audio button
-    download_audio_button = tk.Button(root, text="Download Audio", command=lambda: download_audio(url_entry.get(), status_label), bg="blue", fg="white", font=bold_font)
+    download_audio_button = tk.Button(root, text="Download Audio (mp3)", command=lambda: download_audio(url_entry.get(), status_label), bg="blue", fg="white", font=bold_font)
     download_audio_button.grid(row=2, column=1, padx=10, pady=10)
 
     # Clear button

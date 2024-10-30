@@ -33,7 +33,8 @@ doing any of the following:
 2024-10-28      4       Writing experimental code
 2024-10-28      3       Writing experimental code and writing test functions
 2024-10-29      6       Writing test functions and debugging your code
-2024-10-29      .5       Watching inspirational programming videos on YouTube
+2024-10-29      .5      Watching inspirational programming videos on YouTube
+2024-10-29      .5      Testing functions and finalizing project
 =============Actual====================
 
 
